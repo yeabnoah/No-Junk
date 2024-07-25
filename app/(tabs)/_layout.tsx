@@ -22,6 +22,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
+          tabBarVisibilityAnimationConfig: {},
           title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome name="home" size={23} color={color} />

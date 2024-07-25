@@ -2,6 +2,7 @@ import { View, Text, Image, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/configs/firebaseConfig";
+import trim_the_first_n_words from "@/functions/trimWord";
 
 // Define the type for your data
 interface SliderData {
@@ -68,10 +69,10 @@ const Feed = () => {
         renderItem={({ item }) => (
           <View
             style={{
-              backgroundColor: "#1f2937",
+              // backgroundColor: "#1f2937",
               paddingHorizontal: 3,
               paddingTop: 4,
-              paddingBottom: 10,
+              // paddingBottom: 10,
               borderRadius: 14,
               width: 250,
             }}
@@ -107,7 +108,7 @@ const Feed = () => {
               </Text>
             </View>
             <Text className=" text-wrap text-white  font-outfit-light opacity-75 mt-1 mx-2">
-              {item.description}
+              {trim_the_first_n_words(item.description, 30)}
             </Text>
           </View>
         )}

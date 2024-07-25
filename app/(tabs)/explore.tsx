@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Explore() {
   return (
-    <View>
+    <View className=" min-h-screen bg-background">
       <Text>Explore</Text>
     </View>
   );

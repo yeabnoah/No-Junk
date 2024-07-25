@@ -2,6 +2,7 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import React, { ReactNode } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import socialMediaPlatforms from "@/constant/social";
+import { useRouter } from "expo-router";
 
 // Define the type for your data
 interface CategoryData {
@@ -12,6 +13,7 @@ interface CategoryData {
 }
 
 const Category = () => {
+  const router = useRouter();
   return (
     <View className="mt-5">
       <View className=" mt-3 flex justify-between flex-row items-center mr-5">
@@ -32,7 +34,9 @@ const Category = () => {
         keyExtractor={(item) => item.id.toString()} // Use keyExtractor for unique keys
         renderItem={({ item }) => (
           <TouchableOpacity
-            // style={{}}
+            onPress={() => {
+              router.push(`/posts/${item.name}`);
+            }}
             className=" mx-5 justify-center items-center"
           >
             {item.icon}

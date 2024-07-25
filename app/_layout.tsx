@@ -63,9 +63,15 @@ export default function RootLayout() {
               statusBarStyle: "light",
               statusBarTranslucent: false,
               statusBarColor: "#17151c",
+              animation: "ios",
             }}
           >
-            <Stack.Screen name="(tabs)" />
+            <Stack.Screen
+              name="(tabs)"
+              options={{
+                animation: "ios",
+              }}
+            />
           </Stack>
         </SignedIn>
 

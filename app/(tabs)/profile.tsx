@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Profile() {
   return (
-    <View>
+    <View className=" min-h-screen bg-background">
       <Text>Profile</Text>
     </View>
   );

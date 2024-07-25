@@ -13,7 +13,7 @@ const socialMediaPlatforms = [
   },
   {
     id: 2,
-    name: "Youtube",
+    name: "youtube",
     icon: <AntDesign name="youtube" size={24} color="#10b981" />,
   },
   {
@@ -23,7 +23,7 @@ const socialMediaPlatforms = [
   },
   {
     id: 4,
-    name: "LinkedIn",
+    name: "linkedin",
     icon: <AntDesign name="linkedin-square" size={24} color="#10b981" />,
   },
   {

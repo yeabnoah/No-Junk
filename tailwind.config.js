@@ -11,6 +11,10 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      colors: {
+        background: "#17151c",
+        cardBg: "#222831",
+      },
       fontFamily: {
         "outfit-thin": ["Outfit-Thin", "sans-serif"],
         "outfit-light": ["Outfit-Light", "sans-serif"],
