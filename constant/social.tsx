@@ -18,7 +18,7 @@ const socialMediaPlatforms = [
   },
   {
     id: 3,
-    name: "X",
+    name: "X-twitter",
     icon: <FontAwesome6 name="x-twitter" size={24} color="#10b981" />,
   },
   {
@@ -39,7 +39,7 @@ const socialMediaPlatforms = [
   {
     id: 7,
     name: "Reddit",
-    icon: <FontAwesome name="reddit" size={24} color="#10b981" />,
+    icon: <FontAwesome name="reddit" size={26} color="#10b981" />,
   },
 ];
 

@@ -15,19 +15,19 @@ interface CategoryData {
 const Category = () => {
   const router = useRouter();
   return (
-    <View className="mt-5">
-      <View className=" mt-3 flex justify-between flex-row items-center mr-5">
+    <View className="">
+      {/* <View className=" mt-3 flex justify-between flex-row items-center mr-5">
         <Text className="text-2xl font-outfit-medium text-emerald-500 mx-5 ">
           Post Category
         </Text>
 
-        {/* <Text className=" text-emerald-500 underline underline-offset-2  font-outfit-regular text-lg mt-2">
+        <Text className=" text-emerald-500 underline underline-offset-2  font-outfit-regular text-lg mt-2">
           View All
-        </Text> */}
-      </View>
+        </Text>
+      </View> */}
 
       <FlatList
-        className="mt-5 ml-2"
+        className="mt-2 ml-2 py-2 rounded-l-xl"
         showsHorizontalScrollIndicator={false}
         data={socialMediaPlatforms}
         horizontal
@@ -37,7 +37,7 @@ const Category = () => {
             onPress={() => {
               router.push(`/posts/${item.name}`);
             }}
-            className=" mx-5 justify-center items-center"
+            className=" mx-4 justify-center items-center"
           >
             {item.icon}
             <Text className="text-center font-outfit-light mt-2 text-emerald-500">

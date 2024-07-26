@@ -47,36 +47,35 @@ const SignInWithOAuth = () => {
     <SafeAreaView className=" bg-[#17151c]">
       <StatusBar backgroundColor="#17151c" />
       {/* <StatusBar style="dark /> */}
-      <View className=" min-h-screen flex-1 flex pt-44 items-center bg-[#17151c] px-5">
-        <View className=" ">
+      <View className=" min-h-screen flex-1 flex flex-col items-center bg-[#17151c] px-5">
+        <View className=" flex flex-col gap-y-0.5 min-h-screen py-32 justify-between items-center">
           <Image
-            source={require("../assets/images/app/loginImage.png")}
-            className=" h-72 w-[90vw]"
+            source={require("../assets/images/app/icon.png")}
+            className=" h-32 w-32 mx-auto items-center"
           />
-          <View className=" bg fixed top-10">
+          <View className="">
             <Text className=" text-center text-white text-4xl font-outfit-bold">
               Welcome to{" "}
               <Text className=" text-emerald-500 font-outfit-extrabold">
-                Tatari
+                NoJunk{" "}
               </Text>
-              we make{" "}
+              join and consume{" "}
               <Text className=" text-emerald-500 font-outfit-extrabold">
-                Outsourcing{" "}
+                organic{" "}
               </Text>
-              easy
             </Text>
             <Text className=" mt-5 font-outfit-light text-balance text-emerald-300 text-center text-[16px] space-y-0">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et.
+              NoJunk is your go-to platform for finding and sharing only the
+              best content from across social media. We focus on quality,
+              ensuring every post is worth your time.
             </Text>
             <TouchableOpacity
               className=" bg-emerald-500 flex flex-row gap-2 items-center justify-center  w-max rounded-xl mt-10"
               onPress={onPress}
             >
-              <Feather name="lock" size={18} color="#17151c" />
-              <Text className=" text-[#17151c] text-2xl font-outfit-regular text-center py-3">
-                Sign In
+              {/* <Feather name="lock" size={18} color="#17151c" /> */}
+              <Text className=" text-[#17151c] text-2xl font-outfit-semibold text-center py-3">
+                Get Started
               </Text>
             </TouchableOpacity>
           </View>

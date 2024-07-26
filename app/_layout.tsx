@@ -4,7 +4,13 @@ import * as SecureStore from "expo-secure-store";
 import { useFonts } from "expo-font";
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
-import { View, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SignInWithOAuth from "@/components/SignInWithOAuth";
 
@@ -56,23 +62,29 @@ export default function RootLayout() {
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <ClerkLoaded>
         <SignedIn>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              statusBarHidden: false,
-              statusBarStyle: "light",
-              statusBarTranslucent: false,
-              statusBarColor: "#17151c",
-              animation: "ios",
-            }}
+          <KeyboardAvoidingView
+            enabled
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            className="flex-1"
           >
-            <Stack.Screen
-              name="(tabs)"
-              options={{
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                statusBarHidden: false,
+                statusBarStyle: "light",
+                statusBarTranslucent: false,
+                statusBarColor: "#121217",
                 animation: "ios",
               }}
-            />
-          </Stack>
+            >
+              <Stack.Screen
+                name="(tabs)"
+                options={{
+                  animation: "ios",
+                }}
+              />
+            </Stack>
+          </KeyboardAvoidingView>
         </SignedIn>
 
         <SignedOut>

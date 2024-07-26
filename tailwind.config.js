@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       colors: {
         background: "#17151c",
-        cardBg: "#222831",
+        cardBg: "#17151c",
       },
       fontFamily: {
         "outfit-thin": ["Outfit-Thin", "sans-serif"],

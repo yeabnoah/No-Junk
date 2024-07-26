@@ -11,13 +11,13 @@ import Feed from "@/components/home/feed";
 export default function Home() {
   const { isLoaded, userId, sessionId, getToken } = useAuth();
   const user = useUser();
-
+  // bg-[#1c1c24]
   return (
-    <ScrollView className=" bg-[#1c1c24]">
+    <ScrollView className=" bg-background">
       <Header />
-      <Slider />
       <Category />
       <Feed />
+      <Slider />
     </ScrollView>
   );
 }

@@ -53,28 +53,31 @@ const Slider: React.FC = () => {
   }
 
   return (
-    <View>
-      <Text className=" text-2xl font-outfit-semibold text-emerald-500 mx-5 mt-5 mb-8">
+    <View className=" mt-5 mb-5">
+      <Text className=" text-2xl font-outfit-medium text-emerald-500 mx-5 mb-5">
         Popular Posts
       </Text>
 
+      {/* <View></View> */}
       <FlatList
-        className=" mt-3 ml-2"
+        className=" px-1 mx-2"
         showsHorizontalScrollIndicator={false}
         data={data}
         horizontal={true}
         renderItem={({ item }) => (
-          <View key={item.id}>
+          <View
+            key={item.id}
+            style={{
+              width: 240,
+              height: 140,
+              borderWidth: 0.6,
+              marginHorizontal: 8,
+            }}
+            className=" rounded-lg border-cardBg p-[1.5px]"
+          >
             <Image
               source={{ uri: item.imageUrl }}
-              style={{
-                width: 220,
-                height: 140,
-                marginHorizontal: 5,
-                borderRadius: 10,
-                borderColor: "#10b981",
-                borderWidth: 1.2,
-              }}
+              className=" h-full rounded-lg"
             />
           </View>
         )}
