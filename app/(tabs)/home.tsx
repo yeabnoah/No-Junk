@@ -13,7 +13,11 @@ export default function Home() {
   const user = useUser();
   // bg-[#1c1c24]
   return (
-    <ScrollView className=" bg-background">
+    <ScrollView
+      // scrollEventThrottle={16}
+      overScrollMode="never"
+      className=" bg-background"
+    >
       <Header />
       <Category />
       <Feed />

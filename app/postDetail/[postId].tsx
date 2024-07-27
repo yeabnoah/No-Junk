@@ -13,6 +13,7 @@ import {
   Linking,
   Alert,
   ToastAndroid,
+  Share,
 } from "react-native";
 
 import { AirbnbRating, Rating } from "react-native-ratings";
@@ -26,7 +27,15 @@ import {
 } from "firebase/firestore";
 import { db } from "@/configs/firebaseConfig";
 import { PostInterface } from "@/interface/post";
-import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  Entypo,
+  Feather,
+  FontAwesome,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import { useUser } from "@clerk/clerk-expo";
 
 const { width, height } = Dimensions.get("window");
@@ -160,6 +169,26 @@ export default function PostId() {
     }
   };
 
+  const sharePost = (title: string, contentLink: string) => {
+    Share.share(
+      {
+        title: title,
+        message: `Check out this content:\n${contentLink}\n\nJoin NoJunk and Get Organic Content:\n www.technerd.vercel.app`,
+      },
+      {
+        dialogTitle: "Share with friends",
+      }
+    )
+      .then((result) => {
+        if (result.action === Share.sharedAction) {
+          console.log("Post shared successfully");
+        } else if (result.action === Share.dismissedAction) {
+          console.log("Post sharing dismissed");
+        }
+      })
+      .catch((error) => console.error("Error sharing post", error));
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -171,16 +200,21 @@ export default function PostId() {
           className="h-[30vh] mt-10 mb-5 rounded-2xl w-[90vw] self-center"
         />
 
-        {/* <TouchableOpacity
-          onPress={scrollToReviews}
-          className="flex flex-row gap-5 items-center justify-end mx-5 mb-2"
-        >
-          <Text className="text-right text-lg font-semibold text-emerald-500">
-            Swipe to see The Reviews
+        <View className=" flex flex-row justify-between items-center mx-5 mb-2">
+          <Text className=" text-gray-500 font-outfit-medium text-xl ">
+            #{data.category}
           </Text>
+          <TouchableOpacity
+            onPress={scrollToReviews}
+            className="flex flex-row gap-5 items-center justify-end "
+          >
+            <Text className="text-right text-lg font-semibold text-emerald-500">
+              Swipe to see The Reviews
+            </Text>
 
-          <AntDesign name="arrowright" size={24} color="#10b981" />
-        </TouchableOpacity> */}
+            <AntDesign name="arrowright" size={24} color="#10b981" />
+          </TouchableOpacity>
+        </View>
 
         <ScrollView
           horizontal
@@ -210,21 +244,37 @@ export default function PostId() {
                   {data.author}
                 </Text>
               </Text>
-              <TouchableOpacity
-                onPress={() => {
-                  openLinkWithApp(data.link);
-                }}
-                className=" flex flex-row gap-3  items-center my-5"
-              >
-                <MaterialIcons
-                  name="open-in-browser"
-                  size={26}
-                  color="#10b981"
-                />
-                <Text className=" text-emerald-500 font-outfit-medium text-2xl">
-                  Open Post in {data.category}
-                </Text>
-              </TouchableOpacity>
+              <View className=" flex flex-row items-center justify-between">
+                <TouchableOpacity
+                  onPress={() => {
+                    openLinkWithApp(data.link);
+                  }}
+                  className=" flex flex-row gap-3  items-center my-5"
+                >
+                  <MaterialIcons
+                    name="open-in-browser"
+                    size={26}
+                    color="#10b981"
+                  />
+                  <Text className=" text-emerald-500 font-outfit-medium text-xl">
+                    Open Post in {data.category}
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    sharePost(data.title, data.link);
+                  }}
+                  className=" flex items-center gap-2 flex-row  bg-emerald-500 rounded-full"
+                >
+                  <MaterialCommunityIcons
+                    name="share-circle"
+                    size={25}
+                    color="black"
+                  />
+                  {/* <Text className=" font-outfit-medium text-lg">Share</Text> */}
+                </TouchableOpacity>
+              </View>
             </View>
 
             <View className="">

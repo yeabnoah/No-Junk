@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/configs/firebaseConfig";
@@ -38,8 +38,10 @@ const Slider: React.FC = () => {
 
   if (loading) {
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View className=" flex flex-row justify-center items-center my-16">
+        <Text>
+          <ActivityIndicator size="large" color={"#10b981"} />
+        </Text>
       </View>
     );
   }
@@ -60,6 +62,7 @@ const Slider: React.FC = () => {
 
       {/* <View></View> */}
       <FlatList
+        overScrollMode="never" // Disables the overscroll effect
         className=" px-1 mx-2"
         showsHorizontalScrollIndicator={false}
         data={data}

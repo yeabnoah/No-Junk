@@ -27,6 +27,7 @@ const Category = () => {
       </View> */}
 
       <FlatList
+        overScrollMode="never" // Disables the overscroll effect
         className="mt-2 ml-2 py-2 rounded-l-xl"
         showsHorizontalScrollIndicator={false}
         data={socialMediaPlatforms}

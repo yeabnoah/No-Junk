@@ -118,7 +118,7 @@ export default function PostType() {
         <View className="min-h-screen items-center mt-[25vh]">
           <Image
             source={require("../../assets/images/app/nopost.webp")}
-            className=" h-60 w-[80%] mb-10"
+            className=" h-52 w-[70%] mb-10"
           />
           <Text className="text-2xl text-emerald-500 font-outfit-regular">
             No posts available

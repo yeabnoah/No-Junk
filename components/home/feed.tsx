@@ -6,9 +6,10 @@ import {
   TouchableOpacity,
   Linking,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "@/configs/firebaseConfig";
 import get_the_first_n_words from "@/functions/trimWord";
 import { useRouter } from "expo-router";
@@ -32,15 +33,19 @@ const Feed = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "posts"));
+        const postsQuery = query(collection(db, "posts"), limit(10));
+
+        const querySnapshot = await getDocs(postsQuery);
+
         const docsData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         })) as SliderData[];
+
         setData(docsData);
       } catch (err) {
+        console.error(err);
         setError(true);
-        // setErrorText(err.message);
       } finally {
         setLoading(false);
       }
@@ -51,8 +56,10 @@ const Feed = () => {
 
   if (loading) {
     return (
-      <View>
-        <Text>Loading...</Text>
+      <View className=" flex flex-row justify-center items-center my-16">
+        <Text>
+          <ActivityIndicator size="large" color={"#10b981"} />
+        </Text>
       </View>
     );
   }
@@ -72,6 +79,7 @@ const Feed = () => {
       </Text>
 
       <FlatList
+        overScrollMode="never" // Disables the overscroll effect
         className=" mt-3 ml-2"
         showsHorizontalScrollIndicator={false}
         data={data}

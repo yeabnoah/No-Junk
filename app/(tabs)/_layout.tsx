@@ -1,6 +1,6 @@
 import { Stack, Tabs } from "expo-router";
 import "../../global.css";
-import { FontAwesome } from "@expo/vector-icons";
+import { Feather, FontAwesome, Octicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity } from "react-native";
 
 export default function TabLayout() {
@@ -32,10 +32,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: "Explore",
+          title: "Discover",
 
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="search" size={20} color={color} />
+            <Octicons name="feed-rocket" size={20} color={color} />
           ),
         }}
       />
@@ -44,7 +44,7 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" size={22} color={color} />
+            <Feather name="user" size={22} color={color} />
           ),
         }}
       />
