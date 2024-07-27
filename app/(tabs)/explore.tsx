@@ -62,28 +62,11 @@ const Explore = () => {
     fetchPosts();
   }, [fetchPosts]);
 
-  // const handleSearch = () => {
-  //   Keyboard.dismiss(); // Dismiss keyboard
-
-  //   // Filter posts by search term if searchTerm is not empty
-  //   if (searchTerm) {
-  //     setData((prevData) =>
-  //       prevData.filter(
-  //         (post) =>
-  //           post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //           post.description.toLowerCase().includes(searchTerm.toLowerCase())
-  //       )
-  //     );
-  //   } else {
-  //     fetchPosts(); // Refetch posts if searchTerm is empty
-  //   }
-  // };
-
   // Render Category FlatList
   const renderCategories = () => (
     <FlatList
       overScrollMode="never" // Disables the overscroll effect
-      className="mt-2 ml-2 py-2 rounded-l-xl"
+      className="mt-2 ml-2 mb-3 py-2 rounded-l-xl"
       showsHorizontalScrollIndicator={false}
       data={socialMediaPlatforms}
       horizontal
@@ -129,7 +112,7 @@ const Explore = () => {
   // Render List Header
   const renderHeader = () => (
     <View className=" bg-background">
-      <Text className=" text-3xl mt-5 text-emerald-500 font-outfit-medium  mx-8">
+      <Text className=" text-2xl mt-5 mb-5 text-emerald-500 font-outfit-medium  mx-8">
         Discover Posts
       </Text>
       {renderCategories()}
