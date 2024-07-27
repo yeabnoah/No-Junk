@@ -9,9 +9,10 @@ import {
   Modal,
   TextInput,
 } from "react-native";
+import * as ImageManipulator from "expo-image-manipulator";
 import React, { useCallback, useEffect, useState } from "react";
 import { useUser } from "@clerk/clerk-expo";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import {
   collection,
   getDocs,
@@ -29,6 +30,12 @@ import {
   Feather,
 } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
+import ImageUploader from "@/components/imageUploader";
+import useImageStore from "@/context/image";
+import * as ImagePicker from "expo-image-picker";
+import axios from "axios";
+import { Picker } from "@react-native-picker/picker";
+import socialMediaPlatforms from "@/constant/social";
 
 interface Post {
   id: string;
@@ -50,6 +57,9 @@ export default function Profile() {
   const [postToDelete, setPostToDelete] = useState<string | null>(null);
   const [postToEdit, setPostToEdit] = useState<Post | null>(null);
   const [editData, setEditData] = useState<Post | null>(null);
+  const [disabled, setDisabled] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(editData?.category!);
+  const [editing, setEditing] = useState(false);
 
   const fetchPosts = useCallback(async () => {
     setLoading(true);
@@ -73,8 +83,59 @@ export default function Profile() {
     }
   }, [user?.primaryEmailAddress?.emailAddress]);
 
+  const { image, setImage } = useImageStore();
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled && result.assets) {
+      const uri = result.assets[0].uri;
+      setImage(uri);
+      uploadImage(uri);
+    }
+  };
+
+  const uploadImage = async (uri: string) => {
+    setDisabled(true);
+    const uriParts = uri.split(".");
+    const fileType = uriParts[uriParts.length - 1];
+
+    const formData = new FormData();
+    formData.append("file", {
+      uri,
+      name: `photo.${fileType}`,
+      type: `image/${fileType}`,
+    });
+    formData.append("upload_preset", process.env.EXPO_PUBLIC_PRESET_KEY!);
+
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${process.env
+          .EXPO_PUBLIC_CLOUD_NAME!}/image/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const { secure_url } = response.data;
+      setImage(secure_url);
+      console.log(secure_url);
+      setEditData({ ...editData, imageUrl: secure_url } as Post);
+      setDisabled(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    setSelectedOption(editData?.category!);
   }, [fetchPosts]);
 
   const handleRefresh = async () => {
@@ -109,6 +170,7 @@ export default function Profile() {
   };
 
   const handleEdit = async () => {
+    setEditing(true);
     if (!postToEdit || !editData) return;
     try {
       await updateDoc(doc(db, "posts", postToEdit.id), {
@@ -117,6 +179,7 @@ export default function Profile() {
       setData((prevData) =>
         prevData.map((post) => (post.id === postToEdit.id ? editData : post))
       );
+      setEditing(false);
       setEditModalVisible(false);
       setPostToEdit(null);
     } catch (error) {
@@ -219,9 +282,26 @@ export default function Profile() {
           </Text>
         </View>
 
-        <Text className="font-medium mb-2 mt-10 text-emerald-500 text-2xl font-outfit-regular mx-5 py-3">
-          My Posts
-        </Text>
+        <View className=" flex flex-row justify-between items-center  mb-2 mt-10 mr-5">
+          <Text className="font-medium text-emerald-500 text-2xl font-outfit-regular mx-5 py-3">
+            My Posts
+          </Text>
+
+          <TouchableOpacity
+            onPress={() => {
+              router.push("/post");
+            }}
+            className=" py-1 justify-center items-center bg-emerald-500 flex-row gap-2 pr-4 pl-2 rounded-xl"
+          >
+            <Feather
+              name="plus"
+              size={22}
+              color="#17151c"
+              // className=" mt-1"
+            />
+            <Text className=" font-outfit-medium text-xl">New Post</Text>
+          </TouchableOpacity>
+        </View>
 
         {loading && (
           <ActivityIndicator size="large" color="#10b981" className="mb-4" />
@@ -238,28 +318,36 @@ export default function Profile() {
             setModalVisible(!modalVisible);
           }}
         >
-          <BlurView intensity={50} style={{ flex: 1 }} tint="dark">
-            <View className="flex-1 justify-center items-center">
+          <BlurView
+            intensity={80}
+            style={{ flex: 1 }}
+            tint="systemChromeMaterialDark"
+          >
+            <View className="flex-1 justify-center items-center mx-2">
               <View className="bg-background p-5 rounded-xl shadow-lg">
-                <Text className="text-xl font-medium mb-4 text-emerald-500">
+                <Text className="text-xl font-outfit-medium mb-4 text-emerald-500">
                   Confirm Deletion
                 </Text>
-                <Text className="text-lg text-gray-400 mb-6">
+                <Text className="text-lg text-gray-400 mb-6 font-outfit-regular">
                   Are you sure you want to delete this post? This action cannot
                   be undone.
                 </Text>
-                <View className="flex flex-row justify-between">
+                <View className="flex flex-row justify-between items-center">
                   <TouchableOpacity
-                    className="px-4 py-2 bg-red-500 rounded"
+                    className="flex flex-row py-1 bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] justify-center px-2 items-center rounded"
                     onPress={handleDelete}
                   >
-                    <Text className="text-white font-medium">Delete</Text>
+                    <Text className=" text-xl font-outfit-regular  text-red-500">
+                      Delete
+                    </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    className="px-4 py-2 bg-gray-400 rounded"
+                    className="flex flex-row py-1 bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] justify-center px-2 items-center rounded"
                     onPress={() => setModalVisible(false)}
                   >
-                    <Text className="text-white font-medium">Cancel</Text>
+                    <Text className=" text-xl font-outfit-regular  text-emerald-500">
+                      Cancel
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -286,24 +374,23 @@ export default function Profile() {
                 <Text className="text-xl font-medium mb-4 font-outfit-medium text-emerald-500">
                   Edit Post
                 </Text>
-                {/* <View className=" h-20 min-w-full">
-                  <TouchableOpacity
-                    onPress={() => {}}
-                    className=" bg-background flex items-center justify-center flex-row gap-1 -mb-20 z-10 opacity-80 h-20 w-full"
-                  >
-                    <View className=" flex flex-row gap-1  bg-emerald-500 p-1 rounded-md items-center">
-                      <Text className=" text-xl text-background font-outfit-medium">
-                        Edit
-                      </Text>
-                      <Feather name="edit" size={16} color="#17151c" />
+                <View className=" h-24 bg-background w-fit">
+                  <TouchableOpacity onPress={pickImage} className=" ">
+                    <View className=" h-24 bg-background w-fit -mb-24 z-10 opacity-80 flex items-center justify-center flex-row">
+                      <View className=" bg-background p-2 border border-emerald-500 rounded-md flex flex-row items-center gap-2">
+                        <Feather name="edit" size={18} color="#10b981" />
+                        <Text className=" text-xl font-outfit-medium text-emerald-500">
+                          Edit
+                        </Text>
+                      </View>
                     </View>
+                    <Image
+                      source={{ uri: image || editData?.imageUrl }}
+                      // style={styles.image}
+                      className=" h-24 w-full"
+                    />
                   </TouchableOpacity>
-
-                  <Image
-                    source={{ uri: editData?.imageUrl }}
-                    className=" h-20 mb-5"
-                  />
-                </View> */}
+                </View>
 
                 <Text className=" font-outfit-regular text-emerald-500">
                   Title
@@ -316,17 +403,7 @@ export default function Profile() {
                   placeholder="Title"
                   className="text-white mb-4 border-b border-gray-700 font-outfit-regular"
                 />
-                <Text className=" font-outfit-regular text-emerald-500">
-                  Shared From
-                </Text>
-                <TextInput
-                  value={editData?.category}
-                  onChangeText={(text) =>
-                    setEditData({ ...editData, category: text } as Post)
-                  }
-                  placeholder="Category"
-                  className="text-white mb-4 border-b border-gray-700 font-outfit-regular"
-                />
+
                 <Text className=" font-outfit-regular text-emerald-500">
                   Description
                 </Text>
@@ -351,13 +428,75 @@ export default function Profile() {
                   placeholder="Link"
                   className="text-white mb-4 border-b border-gray-700 font-outfit-regular"
                 />
+
+                <Text className=" font-outfit-regular text-emerald-500">
+                  Shared From
+                </Text>
+                <View style={{}}>
+                  <Picker
+                    selectedValue={selectedOption}
+                    onValueChange={(itemValue) => {
+                      setSelectedOption(itemValue);
+                      setEditData({ ...editData, category: itemValue } as Post);
+                    }}
+                    style={{
+                      backgroundColor: "#17151c",
+                      color: "#10b981",
+                      height: 50,
+                      width: "100%",
+                      fontFamily: "Outfit-Regular",
+                      paddingHorizontal: 10,
+                      borderWidth: 2,
+                      borderColor: "white",
+                    }}
+                    dropdownIconColor="#10b981"
+                  >
+                    {socialMediaPlatforms.map(
+                      (item: { name: string }, index) => {
+                        return (
+                          <Picker.Item
+                            key={index}
+                            label={item.name}
+                            value={item.name}
+                          />
+                        );
+                      }
+                    )}
+                  </Picker>
+                </View>
+
                 <View className="flex flex-row justify-between mt-5">
                   <TouchableOpacity
-                    className="flex flex-row py-1 bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] justify-center px-2 items-center rounded"
+                    disabled={disabled}
+                    className={`${
+                      disabled
+                        ? " bg-gray-500  "
+                        : " bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] "
+                    }flex flex-row py-1  justify-center px-2 items-center rounded`}
                     onPress={handleEdit}
                   >
-                    <Text className="text-emerald-500 font-medium text-xl font-outfit-regular ">
-                      Save
+                    <Text
+                      className={` ${
+                        disabled ? "text-gray-600" : " text-emerald-500"
+                      } font-medium text-xl font-outfit-regular `}
+                    >
+                      {disabled ? (
+                        <View className=" flex flex-row items-center gap-2">
+                          <ActivityIndicator size={"small"} color={"#9ca3af"} />
+                          <Text className=" font-outfit-regular text-gray-400 text-lg">
+                            Uploading Image
+                          </Text>
+                        </View>
+                      ) : editing ? (
+                        <View className=" flex flex-row items-center gap-2">
+                          <ActivityIndicator size={"small"} color={"#9ca3af"} />
+                          <Text className=" font-outfit-regular text-gray-400 text-lg">
+                            Updating
+                          </Text>
+                        </View>
+                      ) : (
+                        "Save"
+                      )}
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity

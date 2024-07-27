@@ -11,13 +11,14 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 import { Feather } from "@expo/vector-icons";
+import useImageStore from "@/context/image";
 
 // Default image URL
 
-export default function ImageUploader({ imageUrl }: { imageUrl: string }) {
+function ImageUploader({ imageUrl }: { imageUrl: string }) {
   const cloudName = "dsaitxphg";
   const preset_key = "ccelrtz4";
-  const [imageUri, setImageUri] = useState<string | null>(null);
+  const { image, setImage } = useImageStore();
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -28,7 +29,7 @@ export default function ImageUploader({ imageUrl }: { imageUrl: string }) {
 
     if (!result.canceled && result.assets) {
       const uri = result.assets[0].uri;
-      setImageUri(uri);
+      setImage(uri);
       uploadImage(uri);
     }
   };
@@ -56,7 +57,7 @@ export default function ImageUploader({ imageUrl }: { imageUrl: string }) {
         }
       );
       const { secure_url } = response.data;
-      setImageUri(secure_url);
+      setImage(secure_url);
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +75,7 @@ export default function ImageUploader({ imageUrl }: { imageUrl: string }) {
           </View>
         </View>
         <Image
-          source={{ uri: imageUri || imageUrl }}
+          source={{ uri: image || imageUrl }}
           style={styles.image}
           className=" h-24 w-full"
         />
@@ -91,3 +92,5 @@ const styles = StyleSheet.create({
   },
   image: {},
 });
+
+export default ImageUploader;
