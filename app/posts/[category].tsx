@@ -87,7 +87,10 @@ export default function PostType() {
                 source={{ uri: item.imageUrl }}
                 className="h-32 rounded-xl"
               />
-              <Text className="text-base text-emerald-500 mt-5">
+              <Text className=" text-2xl text-gray-400 font-outfit-medium mt-3 mb-2">
+                {item.title}
+              </Text>
+              <Text className="text-base text-emerald-500">
                 {get_the_first_n_words(item.description, 30)}
               </Text>
 

@@ -20,15 +20,24 @@ importers:
       '@react-navigation/native':
         specifier: ^6.0.2
         version: 6.1.18(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
+      axios:
+        specifier: ^1.7.2
+        version: 1.7.2
       expo:
         specifier: ~51.0.22
         version: 51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))
+      expo-blur:
+        specifier: ~13.0.2
+        version: 13.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       expo-constants:
         specifier: ~16.0.2
         version: 16.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       expo-font:
         specifier: ~12.0.9
         version: 12.0.9(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+      expo-image-picker:
+        specifier: ~15.0.7
+        version: 15.0.7(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       expo-linear-gradient:
         specifier: ^13.0.2
         version: 13.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -1981,6 +1990,9 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
+  axios@1.7.2:
+    resolution: {integrity: sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==}
+
   babel-core@7.0.0-bridge.0:
     resolution: {integrity: sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==}
     peerDependencies:
@@ -2725,6 +2737,11 @@ packages:
   expo-auth-session@5.5.2:
     resolution: {integrity: sha512-fgqrNz9FhCl/kNyU2Vy2AmLWk+X7vmgiGN2KVUgB8yLHl/tPogYLpNOiqFl/pMLMveoKjPpVOVfbz3RTJHJoTg==}
 
+  expo-blur@13.0.2:
+    resolution: {integrity: sha512-t2p7BChO3Reykued++QJRMZ/og6J3aXtSQ+bU31YcBeXhZLkHwjWEhiPKPnJka7J2/yTs4+jOCNDY0kCZmcE3w==}
+    peerDependencies:
+      expo: '*'
+
   expo-constants@16.0.2:
     resolution: {integrity: sha512-9tNY3OVO0jfiMzl7ngb6IOyR5VFzNoN5OOazUWoeGfmMqVB5kltTemRvKraK9JRbBKIw+SOYLEmF0sEqgFZ6OQ==}
     peerDependencies:
@@ -2742,6 +2759,16 @@ packages:
 
   expo-font@12.0.9:
     resolution: {integrity: sha512-seTCyf0tbgkAnp3ZI9ZfK9QVtURQUgFnuj+GuJ5TSnN0XsOtVe1s2RxTvmMgkfuvfkzcjJ69gyRpsZS1cC8hjw==}
+    peerDependencies:
+      expo: '*'
+
+  expo-image-loader@4.7.0:
+    resolution: {integrity: sha512-cx+MxxsAMGl9AiWnQUzrkJMJH4eNOGlu7XkLGnAXSJrRoIiciGaKqzeaD326IyCTV+Z1fXvIliSgNW+DscvD8g==}
+    peerDependencies:
+      expo: '*'
+
+  expo-image-picker@15.0.7:
+    resolution: {integrity: sha512-u8qiPZNfDb+ap6PJ8pq2iTO7JKX+ikAUQ0K0c7gXGliKLxoXgDdDmXxz9/6QdICTshJBJlBvI0MwY5NWu7A/uw==}
     peerDependencies:
       expo: '*'
 
@@ -2906,6 +2933,15 @@ packages:
   flow-parser@0.241.0:
     resolution: {integrity: sha512-82yKXpz7iWknWFsognZUf5a6mBQLnVrYoYSU9Nbu7FTOpKlu3v9ehpiI9mYXuaIO3J0ojX1b83M/InXvld9HUw==}
     engines: {node: '>=0.4.0'}
+
+  follow-redirects@1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
 
   fontfaceobserver@2.3.0:
     resolution: {integrity: sha512-6FPvD/IVyT4ZlNe7Wcn5Fb/4ChigpucKYSvD6a+0iMoLn2inpo711eyIcKjmDtE5XNcgAkSH9uN/nfAeZzHEfg==}
@@ -4449,6 +4485,9 @@ packages:
   protobufjs@7.3.2:
     resolution: {integrity: sha512-RXyHaACeqXeqAKGLDl68rQKbmObRsTIn4TYVUUug1KfS47YWCo5MacGITEryugIgZqORCvJWEk4l449POg5Txg==}
     engines: {node: '>=12.0.0'}
+
+  proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
@@ -8477,6 +8516,14 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
+  axios@1.7.2:
+    dependencies:
+      follow-redirects: 1.15.6
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
   babel-core@7.0.0-bridge.0(@babel/core@7.24.9):
     dependencies:
       '@babel/core': 7.24.9
@@ -9315,6 +9362,10 @@ snapshots:
       - expo
       - supports-color
 
+  expo-blur@13.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))):
+    dependencies:
+      expo: 51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))
+
   expo-constants@16.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))):
     dependencies:
       '@expo/config': 9.0.3
@@ -9336,6 +9387,15 @@ snapshots:
     dependencies:
       expo: 51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))
       fontfaceobserver: 2.3.0
+
+  expo-image-loader@4.7.0(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))):
+    dependencies:
+      expo: 51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))
+
+  expo-image-picker@15.0.7(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))):
+    dependencies:
+      expo: 51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))
+      expo-image-loader: 4.7.0(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
 
   expo-keep-awake@13.0.2(expo@51.0.22(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))):
     dependencies:
@@ -9584,6 +9644,8 @@ snapshots:
   flow-enums-runtime@0.0.6: {}
 
   flow-parser@0.241.0: {}
+
+  follow-redirects@1.15.6: {}
 
   fontfaceobserver@2.3.0: {}
 
@@ -11397,6 +11459,8 @@ snapshots:
       '@protobufjs/utf8': 1.1.0
       '@types/node': 20.14.12
       long: 5.2.3
+
+  proxy-from-env@1.1.0: {}
 
   psl@1.9.0: {}
 
