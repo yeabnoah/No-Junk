@@ -29,6 +29,7 @@ export default function CreatePost() {
   const [link, setLink] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const user = useUser();
+  const [posting, setPosting] = useState(false);
 
   const defaultImage =
     "https://media.licdn.com/dms/image/D5612AQGA_E-rvcfi3w/article-cover_image-shrink_720_1280/0/1706066503702?e=2147483647&v=beta&t=dTdcYn1MoUN86znud8LsdLmJIprSXKPLEx0s3jTZ82s";
@@ -83,6 +84,7 @@ export default function CreatePost() {
   };
 
   const handlePost = async () => {
+    setPosting(true);
     if (!title || !description || !link || !selectedOption || !image) {
       alert("Please fill in all fields");
       return;
@@ -118,14 +120,14 @@ export default function CreatePost() {
   return (
     <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={47}>
       <View className="min-h-screen bg-background px-5 py-3">
-        <Text className="mb-28 text-2xl font-outfit-medium text-emerald-500">
+        <Text className=" text-2xl font-outfit-medium text-emerald-500">
           New Post
         </Text>
 
-        <View className="bg-background w-fit" style={{ marginTop: 32 }}>
+        <View className="bg-background w-fit">
           <TouchableOpacity
             onPress={pickImage}
-            className="mt-20"
+            className="mt-5"
             disabled={disabled}
           >
             <Image
@@ -208,12 +210,18 @@ export default function CreatePost() {
           </View>
 
           <TouchableOpacity
-            className="rounded mt-5 bg-emerald-500 items-center justify-center"
+            className={`rounded mt-5 ${
+              posting || loading ? "bg-gray-500" : "bg-emerald-500"
+            }  items-center justify-center`}
             onPress={handlePost}
-            disabled={disabled || loading} // Disable when loading
+            disabled={disabled || loading || posting} // Disable when loading
           >
             {loading ? (
               <ActivityIndicator color="#fff" /> // Show loading indicator
+            ) : posting ? (
+              <Text className="text-background text-center text-2xl font-outfit-regular py-2 ">
+                Posting
+              </Text>
             ) : (
               <Text className="text-background text-center text-2xl font-outfit-regular py-2 ">
                 Post

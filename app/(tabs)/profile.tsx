@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import * as ImageManipulator from "expo-image-manipulator";
 import React, { useCallback, useEffect, useState } from "react";
-import { useUser } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/clerk-expo";
 import { Link, useRouter } from "expo-router";
 import {
   collection,
@@ -47,6 +47,7 @@ interface Post {
 }
 
 export default function Profile() {
+  const { signOut } = useClerk();
   const router = useRouter();
   const { user } = useUser();
   const [data, setData] = useState<Post[]>([]);
@@ -265,9 +266,24 @@ export default function Profile() {
       }
     >
       <View className="mb-32">
-        <Text className="text-2xl font-medium text-emerald-500 mb-4">
-          Profile
-        </Text>
+        <View className=" flex flex-row justify-between items-center mb-4 ml-2">
+          <Text className="text-2xl font-outfit-medium font-medium text-emerald-500 ">
+            Profile
+          </Text>
+
+          <TouchableOpacity
+            className="flex flex-row py-1 bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] justify-center px-2 items-center rounded"
+            onPress={async () => {
+              await signOut();
+            }} // Correctly bind the item to the edit modal function
+          >
+            <MaterialIcons name="logout" size={20} color="#10b981" />
+            <Text className="font-outfit-regular text-emerald-500 text-lg">
+              {" "}
+              Logout
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         <View className="h-36 w-full mb-6 items-center">
           <Image
@@ -291,16 +307,22 @@ export default function Profile() {
             onPress={() => {
               router.push("/post");
             }}
-            className=" py-1 justify-center items-center bg-emerald-500 flex-row gap-2 pr-4 pl-2 rounded-xl"
+            className="flex flex-row gap-2 py-1 bg-[#1c1c24] border-[#2e2e3a] border-[0.9px] justify-center px-2 items-center rounded"
           >
             <Feather
               name="plus"
-              size={22}
-              color="#17151c"
+              size={18}
+              color="#10b981"
               // className=" mt-1"
             />
-            <Text className=" font-outfit-medium text-xl">New Post</Text>
+            <Text className=" font-outfit-medium text-emerald-500 text-xl">
+              New Post
+            </Text>
           </TouchableOpacity>
+
+          {/* <TouchableOpacity className=" py-1 justify-center items-center bg-emerald-500 flex-row gap-2 pr-4 pl-2 rounded-xl">
+           
+          </TouchableOpacity> */}
         </View>
 
         {loading && (

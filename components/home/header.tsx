@@ -37,8 +37,9 @@ export default function Header() {
         />
         <TextInput
           placeholderTextColor="gray"
-          className=" bg-[#17151c] rounded-md text-emerald-500  text-xl font-outfit-regular w-[80%]"
-          placeholder="what are you looking for .."
+          className="bg-[#17151c] rounded-md text-emerald-500 text-xl font-outfit-regular w-[80%]"
+          placeholder="Search is Upcoming feature .."
+          editable={false} // Disable editing
         />
       </View>
     </View>
