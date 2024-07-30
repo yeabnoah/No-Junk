@@ -1,6 +1,16 @@
-import { Redirect } from "expo-router";
-import { Text, View } from "react-native";
+import { Redirect, useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
-  return <Redirect href={"/home"} />;
+  const router = useRouter();
+  return (
+    <View
+      style={{ backgroundColor: "#17151c" }}
+      className=" flex-1 bg-background"
+    >
+      <StatusBar backgroundColor="#17151c" style="light" />
+      <Redirect href="/home" />
+    </View>
+  );
 }

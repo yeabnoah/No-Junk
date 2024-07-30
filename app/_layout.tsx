@@ -39,7 +39,7 @@ const tokenCache = {
   },
 };
 
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+const publishableKey = "pk_test_ZnJhbmsteWFrLTg4LmNsZXJrLmFjY291bnRzLmRldiQ";
 
 if (!publishableKey) {
   throw new Error(
@@ -65,21 +65,35 @@ export default function RootLayout() {
           <KeyboardAvoidingView
             enabled
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            className="flex-1"
+            className="flex-1 bg-background"
+            style={{ backgroundColor: "#17151c" }}
           >
             <Stack
               screenOptions={{
+                headerStyle: {
+                  backgroundColor: "#17151c",
+                },
                 headerShown: false,
                 statusBarHidden: false,
                 statusBarStyle: "light",
                 statusBarTranslucent: false,
                 statusBarColor: "#121217",
                 animation: "ios",
+                navigationBarColor: "#17151c",
               }}
             >
               <Stack.Screen
                 name="(tabs)"
                 options={{
+                  navigationBarColor: "#17151c",
+                  animation: "ios",
+                }}
+              />
+
+              <Stack.Screen
+                name="index"
+                options={{
+                  navigationBarColor: "#17151c",
                   animation: "ios",
                 }}
               />

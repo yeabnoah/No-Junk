@@ -10,6 +10,7 @@ import { Feather } from "@expo/vector-icons";
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {
+    console.log("hello world");
     // Warm up the android browser to improve UX
     //docs.expo.dev/guides/authentication/#improving-user-experience
     https: void WebBrowser.warmUpAsync();
@@ -44,10 +45,16 @@ const SignInWithOAuth = () => {
   }, []);
 
   return (
-    <SafeAreaView className=" bg-[#17151c]">
+    <SafeAreaView
+      className=" bg-[#17151c]"
+      style={{ backgroundColor: "#17151c" }}
+    >
       <StatusBar backgroundColor="#17151c" />
       {/* <StatusBar style="dark /> */}
-      <View className=" min-h-screen flex-1 flex flex-col items-center bg-[#17151c] px-5">
+      <View
+        className=" min-h-screen flex-1 flex flex-col items-center bg-[#17151c] px-5"
+        style={{ backgroundColor: "#17151c" }}
+      >
         <View className=" flex flex-col gap-y-0.5 min-h-screen py-32 justify-between items-center">
           <Image
             source={require("../assets/images/app/icon.png")}

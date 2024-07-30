@@ -29,7 +29,7 @@ import {
   MaterialCommunityIcons,
   Feather,
 } from "@expo/vector-icons";
-import { BlurView } from "expo-blur";
+// import { BlurView } from "expo-blur";
 import ImageUploader from "@/components/imageUploader";
 import useImageStore from "@/context/image";
 import * as ImagePicker from "expo-image-picker";
@@ -45,6 +45,9 @@ interface Post {
   link: string;
   title: string;
 }
+
+const cloudName = "dsaitxphg";
+const preset_key = "ccelrtz4";
 
 export default function Profile() {
   const { signOut } = useClerk();
@@ -111,12 +114,11 @@ export default function Profile() {
       name: `photo.${fileType}`,
       type: `image/${fileType}`,
     });
-    formData.append("upload_preset", process.env.EXPO_PUBLIC_PRESET_KEY!);
+    formData.append("upload_preset", preset_key);
 
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env
-          .EXPO_PUBLIC_CLOUD_NAME!}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         formData,
         {
           headers: {
@@ -254,6 +256,7 @@ export default function Profile() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: "#17151c" }}
       className="min-h-screen bg-background px-4 pt-4"
       refreshControl={
         <RefreshControl
@@ -329,7 +332,15 @@ export default function Profile() {
           <ActivityIndicator size="large" color="#10b981" className="mb-4" />
         )}
 
-        {data.map(renderPostItem)}
+        {data.length >= 1 ? (
+          data.map(renderPostItem)
+        ) : (
+          <View className=" flex text-center items-center justify-center min-h-[30vh]">
+            <Text className=" text-emerald-500 font-outfit-regular text-xl">
+              You haven't posted Yet !
+            </Text>
+          </View>
+        )}
 
         {/* Delete Confirmation Modal */}
         <Modal
@@ -340,12 +351,15 @@ export default function Profile() {
             setModalVisible(!modalVisible);
           }}
         >
-          <BlurView
-            intensity={80}
-            style={{ flex: 1 }}
-            tint="systemChromeMaterialDark"
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // semi-transparent background
+            }}
           >
-            <View className="flex-1 justify-center items-center mx-2">
+            <View className="flex-1 justify-center items-center mx-2 w-[90%]">
               <View className="bg-background p-5 rounded-xl shadow-lg">
                 <Text className="text-xl font-outfit-medium mb-4 text-emerald-500">
                   Confirm Deletion
@@ -374,7 +388,7 @@ export default function Profile() {
                 </View>
               </View>
             </View>
-          </BlurView>
+          </View>
         </Modal>
 
         {/* Edit Modal */}
@@ -386,13 +400,16 @@ export default function Profile() {
             setEditModalVisible(!editModalVisible);
           }}
         >
-          <BlurView
-            intensity={90}
-            style={{ flex: 1 }}
-            tint="systemChromeMaterialDark"
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // semi-transparent background
+            }}
           >
-            <View className="flex-1 justify-center items-center mx-5">
-              <View className="bg-background p-5 rounded-xl shadow-lg">
+            <View className="flex-1 justify-center items-center mx-5 w-[90%]">
+              <View className="bg-background p-5 rounded-xl shadow-lg w-[100%]">
                 <Text className="text-xl font-medium mb-4 font-outfit-medium text-emerald-500">
                   Edit Post
                 </Text>
@@ -532,7 +549,7 @@ export default function Profile() {
                 </View>
               </View>
             </View>
-          </BlurView>
+          </View>
         </Modal>
       </View>
     </ScrollView>

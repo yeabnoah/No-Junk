@@ -53,7 +53,7 @@ const Slider: React.FC = () => {
         return {
           id: doc.id,
           ...data,
-          reviewCount: data.review && data.review.length, // Add review count for sorting
+          reviewCount: (data.review && data.review.length) || 0, // Default to 0 if review is not present
         };
       });
 
@@ -95,7 +95,9 @@ const Slider: React.FC = () => {
   if (data.length === 0) {
     return (
       <View className="flex flex-row justify-center items-center my-16">
-        <Text>No posts available.</Text>
+        <Text className=" text-2xl text-emerald-500 font-outfit-regular">
+          No popular posts available.
+        </Text>
       </View>
     );
   }

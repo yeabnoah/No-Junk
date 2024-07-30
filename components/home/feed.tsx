@@ -33,7 +33,12 @@ const Feed = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postsQuery = query(collection(db, "posts"), limit(10));
+        // Order by 'createdAt' in descending order and limit to 10
+        const postsQuery = query(
+          collection(db, "posts"),
+          orderBy("createdAt", "desc"),
+          limit(10)
+        );
 
         const querySnapshot = await getDocs(postsQuery);
 
@@ -52,7 +57,7 @@ const Feed = () => {
     };
 
     fetchData();
-  }, []);
+  }, [data]);
 
   if (loading) {
     return (

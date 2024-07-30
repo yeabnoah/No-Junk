@@ -78,11 +78,13 @@ export default function PostType() {
               progressBackgroundColor={"#10b981"}
             />
           }
+          className=" mb-20"
           onRefresh={fetchPosts}
+          showsVerticalScrollIndicator={false}
           data={data}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View className="border border-[#282834] p-2 bg-card rounded-[15] mx-auto mt-4">
+            <View className="border border-[#282834] p-2 bg-card rounded-[15] mx-auto mt-4 w-[95%]">
               <Image
                 source={{ uri: item.imageUrl }}
                 className="h-32 rounded-xl"

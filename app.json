@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "business_directory_app",
-    "slug": "business_directory_app",
+    "name": "No Junk",
+    "slug": "no_junk",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,21 +10,25 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#17151c"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "backgroundColor": "#17151c"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#17151c"
+      },
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "package": "com.technerd345.no_junk"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "backgroundColor": "#17151c"
     },
     "plugins": [
       "expo-router",
@@ -37,6 +41,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "88d3a2ca-e2e2-4ad8-9392-ca9cbf15eba2"
+      }
     }
   }
 }

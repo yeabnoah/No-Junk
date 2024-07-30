@@ -20,6 +20,9 @@ import { db } from "@/configs/firebaseConfig";
 import { useUser } from "@clerk/clerk-expo";
 import { Redirect, router } from "expo-router";
 
+const cloudName = "dsaitxphg";
+const preset_key = "ccelrtz4";
+
 export default function CreatePost() {
   const [image, setImage] = useState("");
   const [disabled, setDisabled] = useState(false);
@@ -61,11 +64,11 @@ export default function CreatePost() {
       name: `photo.${fileType}`,
       type: `image/${fileType}`,
     });
-    formData.append("upload_preset", process.env.EXPO_PUBLIC_PRESET_KEY!);
+    formData.append("upload_preset", preset_key);
 
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${process.env.EXPO_PUBLIC_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         formData,
         {
           headers: {
@@ -131,9 +134,14 @@ export default function CreatePost() {
             disabled={disabled}
           >
             <Image
-              source={{ uri: image || defaultImage }}
+              source={
+                image
+                  ? { uri: image }
+                  : require("./../assets/images/app/uuu.png")
+              }
               className="h-52 w-full rounded-xl"
             />
+
             <View className="mt-5 bg-background w-fit flex items-center justify-center flex-row">
               <View className="bg-background p-2 border border-emerald-500 rounded-md flex flex-row items-center gap-2">
                 <Feather name="plus" size={18} color="#10b981" />
@@ -214,13 +222,19 @@ export default function CreatePost() {
               posting || loading ? "bg-gray-500" : "bg-emerald-500"
             }  items-center justify-center`}
             onPress={handlePost}
-            disabled={disabled || loading || posting} // Disable when loading
+            disabled={disabled || loading || posting}
           >
             {loading ? (
-              <ActivityIndicator color="#fff" /> // Show loading indicator
-            ) : posting ? (
+              <View className=" flex flex-row items-center gap-5">
+                <ActivityIndicator color="#fff" className=" my-3" />
+                <Text className=" text-xl font-outfit-regular text-white">
+                  Uploading Image ...
+                </Text>
+              </View>
+            ) : // Show loading indicator
+            posting ? (
               <Text className="text-background text-center text-2xl font-outfit-regular py-2 ">
-                Posting
+                Posting ...
               </Text>
             ) : (
               <Text className="text-background text-center text-2xl font-outfit-regular py-2 ">

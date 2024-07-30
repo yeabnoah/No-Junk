@@ -111,7 +111,7 @@ const Explore = () => {
 
   // Render List Header
   const renderHeader = () => (
-    <View className=" bg-background">
+    <View style={{ backgroundColor: "#17151c" }} className=" bg-background">
       <Text className=" text-2xl mt-5 mb-5 text-emerald-500 font-outfit-medium  mx-8">
         Discover Posts
       </Text>
@@ -128,7 +128,7 @@ const Explore = () => {
             source={require("../../assets/images/app/nopost.webp")}
             className="h-52 w-[50%] mb-10"
           />
-          <Text className="text-xl text-emerald-500 font-outfit-regular">
+          <Text className=" text-2xl text-emerald-500 font-outfit-regular">
             No posts available
           </Text>
         </View>

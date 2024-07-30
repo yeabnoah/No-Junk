@@ -15,8 +15,8 @@ import {
   ToastAndroid,
   Share,
 } from "react-native";
-
-import { AirbnbRating, Rating } from "react-native-ratings";
+import StarRating from "react-native-star-rating-widget";
+import { StarRatingDisplay } from "react-native-star-rating-widget";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import {
   arrayUnion,
@@ -29,18 +29,13 @@ import { db } from "@/configs/firebaseConfig";
 import { PostInterface } from "@/interface/post";
 import {
   AntDesign,
-  Entypo,
-  Feather,
-  FontAwesome,
-  Ionicons,
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
 import { useUser } from "@clerk/clerk-expo";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
-// Define the interface for a review
 interface Review {
   rate: number;
   comment: string;
@@ -67,11 +62,6 @@ export default function PostId() {
   };
 
   const fetchDetails = useCallback(async () => {
-    if (!stringPostId) {
-      router.push("/");
-      return;
-    }
-
     try {
       const docRef = doc(db, "posts", stringPostId);
       const docSnap = await getDoc(docRef);
@@ -86,7 +76,7 @@ export default function PostId() {
     } finally {
       setLoading(false);
     }
-  }, [stringPostId, router]);
+  }, [stringPostId]);
 
   useEffect(() => {
     fetchDetails();
@@ -103,13 +93,13 @@ export default function PostId() {
   if (!data) {
     return (
       <View className="min-h-screen bg-background px-5 justify-center items-center">
-        <Text>No data available</Text>
+        <Text className=" text-2xl text-emerald-500">No data available</Text>
       </View>
     );
   }
 
   async function addReviewToDocument(
-    db: Firestore, // Type the Firestore instance
+    db: Firestore,
     docId: string,
     review: Review
   ) {
@@ -121,7 +111,6 @@ export default function PostId() {
       console.log("Document updated successfully");
     } catch (error) {
       console.error("Error updating document: ", error);
-      throw error; // Re-throw the error if you want to handle it elsewhere
     }
   }
 
@@ -129,7 +118,6 @@ export default function PostId() {
     const url = link;
 
     try {
-      // Check if the device can handle the URL
       const supported = await Linking.canOpenURL(url);
 
       if (supported) {
@@ -146,7 +134,7 @@ export default function PostId() {
   };
 
   const handleSubmit = async () => {
-    setLoadingReview(true); // Set loading state to true when the update starts
+    setLoadingReview(true);
 
     const newReview: Review = {
       rate: newRate,
@@ -158,14 +146,13 @@ export default function PostId() {
 
     try {
       await addReviewToDocument(db, postId as string, newReview);
-
       fetchDetails();
       setNewComment("");
-      ToastAndroid.show("comment added successfully", ToastAndroid.BOTTOM);
+      ToastAndroid.show("Comment added successfully", ToastAndroid.BOTTOM);
     } catch (error) {
-      // Handle error if needed
+      console.error("Error adding review:", error);
     } finally {
-      setLoadingReview(false); // Set loading state to false when the update completes
+      setLoadingReview(false);
     }
   };
 
@@ -230,7 +217,6 @@ export default function PostId() {
               <Text className="text-emerald-500 font-outfit-medium text-xl mb-2">
                 Title :{" "}
                 <Text className="text-gray-500 font-outfit-regular text-xl">
-                  {" "}
                   {data.title}
                 </Text>
               </Text>
@@ -240,7 +226,6 @@ export default function PostId() {
               <Text className="text-emerald-500 font-outfit-medium text-xl">
                 Author:
                 <Text className="text-gray-500 font-outfit-regular text-xl">
-                  {" "}
                   {data.author}
                 </Text>
               </Text>
@@ -272,7 +257,6 @@ export default function PostId() {
                     size={25}
                     color="black"
                   />
-                  {/* <Text className=" font-outfit-medium text-lg">Share</Text> */}
                 </TouchableOpacity>
               </View>
             </View>
@@ -284,16 +268,12 @@ export default function PostId() {
                     Rate Post :
                   </Text>
 
-                  <AirbnbRating
-                    count={5}
-                    reviews={["Terrible", "Bad", "OK", "Good", "Amazing"]}
-                    defaultRating={newRate}
-                    size={20}
-                    showRating={false}
-                    selectedColor="#10b981"
-                    onFinishRating={(rate: number) => {
-                      setNewRate(rate);
-                    }}
+                  <StarRating
+                    rating={newRate}
+                    enableSwiping={true}
+                    onChange={setNewRate}
+                    color="#10b981"
+                    starSize={27}
                   />
                 </View>
               </View>
@@ -306,8 +286,8 @@ export default function PostId() {
                 }}
                 placeholder="Enter review comment"
                 placeholderTextColor={"gray"}
-                numberOfLines={3}
-                className=" border-[.3px] border-emerald-500 text-xl align-top font-outfit-light text-emerald-500 mx-5 px-3 mt-3 rounded pt-2"
+                numberOfLines={4}
+                className=" border-[.3px] border-emerald-500 text-xl align-top font-outfit-light text-emerald-500 mx-5 px-3 mt-3 pt-2"
               />
 
               <TouchableOpacity
@@ -336,9 +316,9 @@ export default function PostId() {
                   showsVerticalScrollIndicator={false}
                   className=" mb-10"
                 >
-                  {data.review.map((item) => (
+                  {data.review.map((item, index) => (
                     <View
-                      key={Math.random()}
+                      key={index}
                       className="p-2 border-[.3px] border-gray-600 rounded-md mb-2 pr-3"
                     >
                       <View className=" flex flex-row gap-3 items-center">
@@ -351,20 +331,11 @@ export default function PostId() {
                           <Text className="ml-1 text-xl font-outfit-regular text-emerald-500">
                             {item.name}
                           </Text>
-                          <AirbnbRating
-                            count={5}
-                            reviews={[
-                              "Terrible",
-                              "Bad",
-                              "OK",
-                              "Good",
-                              "Amazing",
-                            ]}
-                            defaultRating={item.rate}
-                            size={12}
-                            showRating={false}
-                            selectedColor="#10b981"
-                            isDisabled={true}
+
+                          <StarRatingDisplay
+                            rating={item.rate}
+                            starSize={15}
+                            color="#10b981"
                           />
                         </View>
                       </View>
