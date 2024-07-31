@@ -55,6 +55,7 @@
     "react-native-skeleton-content": "^1.0.28",
     "react-native-skeleton-placeholder": "^5.2.4",
     "react-native-star-rating-widget": "^1.8.0",
+    "react-native-stock-star-rating": "^1.0.6",
     "react-native-web": "~0.19.12",
     "tailwindcss": "^3.4.7",
     "zustand": "^4.5.4"

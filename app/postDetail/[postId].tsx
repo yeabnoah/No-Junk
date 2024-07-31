@@ -17,6 +17,8 @@ import {
 } from "react-native";
 // import StarRating from "react-native-star-rating-widget";
 // import { StarRatingDisplay } from "react-native-star-rating-widget";
+import { Rating, RatingInput } from "react-native-stock-star-rating";
+// import {  } from "react-native-stock-star-rating";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import {
   arrayUnion,
@@ -275,6 +277,15 @@ export default function PostId() {
                     color="#10b981"
                     starSize={27}
                   /> */}
+
+                  <RatingInput
+                    rating={newRate}
+                    color="#10b981"
+                    setRating={setNewRate}
+                    size={33}
+                    maxStars={5}
+                    bordered={false}
+                  />
                 </View>
               </View>
 
@@ -332,11 +343,12 @@ export default function PostId() {
                             {item.name}
                           </Text>
 
-                          {/* <StarRatingDisplay
-                            rating={item.rate}
-                            starSize={15}
+                          <Rating
+                            stars={item.rate}
                             color="#10b981"
-                          /> */}
+                            maxStars={5}
+                            size={20}
+                          />
                         </View>
                       </View>
                       <Text className="ml-14 text-lg font-outfit-light text-emerald-500">

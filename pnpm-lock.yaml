@@ -112,6 +112,9 @@ importers:
       react-native-star-rating-widget:
         specifier: ^1.8.0
         version: 1.8.0(react-native-svg@15.4.0(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
+      react-native-stock-star-rating:
+        specifier: ^1.0.6
+        version: 1.0.6
       react-native-web:
         specifier: ~0.19.12
         version: 0.19.12(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -4930,6 +4933,9 @@ packages:
       react: '*'
       react-native: '*'
       react-native-svg: '*'
+
+  react-native-stock-star-rating@1.0.6:
+    resolution: {integrity: sha512-YQMGVYX03kq9cW0Of0y+fad9A1RpyM/ZOKMb2o15DfITcceLlrz5x83B6kBOl6SxM/YzdXpMvphWNZehilJ46g==}
 
   react-native-svg@15.4.0:
     resolution: {integrity: sha512-zkBEbme/Dba4yqreg/oI2P6/6LrLywWY7HhaSwpU7Pb5COpTd2fV6/ShsgZz8GRFFdidUPwWmx01FITUsjhkmw==}
@@ -12370,6 +12376,8 @@ snapshots:
       react: 18.2.0
       react-native: 0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0)
       react-native-svg: 15.4.0(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
+
+  react-native-stock-star-rating@1.0.6: {}
 
   react-native-svg@15.4.0(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0):
     dependencies:
