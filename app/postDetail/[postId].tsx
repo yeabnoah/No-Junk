@@ -15,8 +15,8 @@ import {
   ToastAndroid,
   Share,
 } from "react-native";
-import StarRating from "react-native-star-rating-widget";
-import { StarRatingDisplay } from "react-native-star-rating-widget";
+// import StarRating from "react-native-star-rating-widget";
+// import { StarRatingDisplay } from "react-native-star-rating-widget";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import {
   arrayUnion,
@@ -268,13 +268,13 @@ export default function PostId() {
                     Rate Post :
                   </Text>
 
-                  <StarRating
+                  {/* <StarRating
                     rating={newRate}
                     enableSwiping={true}
                     onChange={setNewRate}
                     color="#10b981"
                     starSize={27}
-                  />
+                  /> */}
                 </View>
               </View>
 
@@ -332,11 +332,11 @@ export default function PostId() {
                             {item.name}
                           </Text>
 
-                          <StarRatingDisplay
+                          {/* <StarRatingDisplay
                             rating={item.rate}
                             starSize={15}
                             color="#10b981"
-                          />
+                          /> */}
                         </View>
                       </View>
                       <Text className="ml-14 text-lg font-outfit-light text-emerald-500">
