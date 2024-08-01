@@ -22,7 +22,23 @@
         "backgroundColor": "#17151c"
       },
       "permissions": ["android.permission.RECORD_AUDIO"],
-      "package": "com.technerd345.no_junk"
+      "package": "com.technerd345.no_junk",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "*"
+            },
+            {
+              "scheme": "myapp",
+              "host": "*"
+            }
+          ],
+          "category": ["DEFAULT", "BROWSABLE"]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",
