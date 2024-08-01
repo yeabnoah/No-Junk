@@ -39,7 +39,7 @@ const tokenCache = {
   },
 };
 
-const publishableKey = "pk_test_ZnJhbmsteWFrLTg4LmNsZXJrLmFjY291bnRzLmRldiQ";
+const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!y;
 
 if (!publishableKey) {
   throw new Error(

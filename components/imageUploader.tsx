@@ -16,8 +16,6 @@ import useImageStore from "@/context/image";
 // Default image URL
 
 function ImageUploader({ imageUrl }: { imageUrl: string }) {
-  const cloudName = "dsaitxphg";
-  const preset_key = "ccelrtz4";
   const { image, setImage } = useImageStore();
 
   const pickImage = async () => {
@@ -44,11 +42,11 @@ function ImageUploader({ imageUrl }: { imageUrl: string }) {
       name: `photo.${fileType}`,
       type: `image/${fileType}`,
     });
-    formData.append("upload_preset", preset_key);
+    formData.append("upload_preset", process.env.EXPO_PUBLIC_PRESET_KEY!);
 
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.EXPO_PUBLIC_CLOUD_NAME}/image/upload`,
         formData,
         {
           headers: {
