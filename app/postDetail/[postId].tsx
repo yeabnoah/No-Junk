@@ -15,10 +15,8 @@ import {
   ToastAndroid,
   Share,
 } from "react-native";
-// import StarRating from "react-native-star-rating-widget";
-// import { StarRatingDisplay } from "react-native-star-rating-widget";
 import { Rating, RatingInput } from "react-native-stock-star-rating";
-// import {  } from "react-native-stock-star-rating";
+import * as WebBrowser from "expo-web-browser";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import {
   arrayUnion,
@@ -54,10 +52,10 @@ export default function PostId() {
   const stringPostId = String(postId);
   const [data, setData] = useState<PostInterface | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [loadingReview, setLoadingReview] = useState(false);
+  const [loadingReview, setLoadingReview] = useState<boolean>(false);
 
-  const [newRate, setNewRate] = useState(3);
-  const [newComment, setNewComment] = useState("");
+  const [newRate, setNewRate] = useState<number>(3);
+  const [newComment, setNewComment] = useState<string>("");
 
   const scrollToReviews = () => {
     scrollViewRef.current?.scrollTo({ x: width, animated: true });
@@ -95,7 +93,7 @@ export default function PostId() {
   if (!data) {
     return (
       <View className="min-h-screen bg-background px-5 justify-center items-center">
-        <Text className=" text-2xl text-emerald-500">No data available</Text>
+        <Text className="text-2xl text-emerald-500">No data available</Text>
       </View>
     );
   }
@@ -112,26 +110,22 @@ export default function PostId() {
       });
       console.log("Document updated successfully");
     } catch (error) {
-      console.error("Error updating document: ", error);
+      console.error("Error updating document:", error);
     }
   }
 
   const openLinkWithApp = async (link: string) => {
-    const url = link;
-
     try {
-      const supported = await Linking.canOpenURL(url);
+      const supported = await Linking.canOpenURL(link);
 
       if (supported) {
-        await Linking.openURL(url);
+        await Linking.openURL(link);
       } else {
-        Alert.alert(
-          "Error",
-          "Unable to open the URL. Make sure the URL is correct."
-        );
+        await WebBrowser.openBrowserAsync(link);
       }
     } catch (error) {
       Alert.alert("Error", "An unexpected error occurred.");
+      console.error("Error opening link:", error);
     }
   };
 
@@ -147,7 +141,7 @@ export default function PostId() {
     };
 
     try {
-      await addReviewToDocument(db, postId as string, newReview);
+      await addReviewToDocument(db, stringPostId, newReview);
       fetchDetails();
       setNewComment("");
       ToastAndroid.show("Comment added successfully", ToastAndroid.BOTTOM);
@@ -189,18 +183,17 @@ export default function PostId() {
           className="h-[30vh] mt-10 mb-5 rounded-2xl w-[90vw] self-center"
         />
 
-        <View className=" flex flex-row justify-between items-center mx-5 mb-2">
-          <Text className=" text-gray-500 font-outfit-medium text-xl ">
+        <View className="flex flex-row justify-between items-center mx-5 mb-2">
+          <Text className="text-gray-500 font-outfit-medium text-xl">
             #{data.category}
           </Text>
           <TouchableOpacity
             onPress={scrollToReviews}
-            className="flex flex-row gap-5 items-center justify-end "
+            className="flex flex-row gap-5 items-center justify-end"
           >
             <Text className="text-right text-lg font-semibold text-emerald-500">
               Swipe to see The Reviews
             </Text>
-
             <AntDesign name="arrowright" size={24} color="#10b981" />
           </TouchableOpacity>
         </View>
@@ -217,7 +210,7 @@ export default function PostId() {
           <ScrollView style={{ width }}>
             <View className="p-5">
               <Text className="text-emerald-500 font-outfit-medium text-xl mb-2">
-                Title :{" "}
+                Title:{" "}
                 <Text className="text-gray-500 font-outfit-regular text-xl">
                   {data.title}
                 </Text>
@@ -231,28 +224,24 @@ export default function PostId() {
                   {data.author}
                 </Text>
               </Text>
-              <View className=" flex flex-row items-center justify-between">
+              <View className="flex flex-row items-center justify-between">
                 <TouchableOpacity
-                  onPress={() => {
-                    openLinkWithApp(data.link);
-                  }}
-                  className=" flex flex-row gap-3  items-center my-5"
+                  onPress={() => openLinkWithApp(data.link)}
+                  className="flex flex-row gap-3 items-center my-5"
                 >
                   <MaterialIcons
                     name="open-in-browser"
                     size={26}
                     color="#10b981"
                   />
-                  <Text className=" text-emerald-500 font-outfit-medium text-xl">
+                  <Text className="text-emerald-500 font-outfit-medium text-xl">
                     Open Post in {data.category}
                   </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                  onPress={() => {
-                    sharePost(data.title, data.link);
-                  }}
-                  className=" flex items-center gap-2 flex-row  bg-emerald-500 rounded-full"
+                  onPress={() => sharePost(data.title, data.link)}
+                  className="flex items-center gap-2 flex-row bg-emerald-500 rounded-full"
                 >
                   <MaterialCommunityIcons
                     name="share-circle"
@@ -264,20 +253,11 @@ export default function PostId() {
             </View>
 
             <View className="">
-              <View className=" w-full">
+              <View className="w-full">
                 <View className="flex flex-row items-center mx-5 gap-5">
                   <Text className="text-emerald-500 text-xl font-outfit-medium">
-                    Rate Post :
+                    Rate Post:
                   </Text>
-
-                  {/* <StarRating
-                    rating={newRate}
-                    enableSwiping={true}
-                    onChange={setNewRate}
-                    color="#10b981"
-                    starSize={27}
-                  /> */}
-
                   <RatingInput
                     rating={newRate}
                     color="#10b981"
@@ -292,20 +272,18 @@ export default function PostId() {
               <TextInput
                 value={newComment}
                 multiline
-                onChangeText={(event: string) => {
-                  setNewComment(event);
-                }}
+                onChangeText={(text: string) => setNewComment(text)}
                 placeholder="Enter review comment"
-                placeholderTextColor={"gray"}
+                placeholderTextColor="gray"
                 numberOfLines={4}
-                className=" border-[.3px] border-emerald-500 text-xl align-top font-outfit-light text-emerald-500 mx-5 px-3 mt-3 pt-2"
+                className="border-[.3px] border-emerald-500 text-xl align-top font-outfit-light text-emerald-500 mx-5 px-3 mt-3 pt-2"
               />
 
               <TouchableOpacity
                 disabled={loadingReview}
                 onPress={handleSubmit}
                 className={`w-fit rounded-lg mx-5 my-5 ${
-                  loadingReview ? " bg-gray-400" : "bg-emerald-500"
+                  loadingReview ? "bg-gray-400" : "bg-emerald-500"
                 }`}
               >
                 <Text className="text-center py-2 font-outfit-medium text-xl">

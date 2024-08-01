@@ -15,7 +15,7 @@ importers:
     dependencies:
       '@clerk/clerk-expo':
         specifier: ^1.2.9
-        version: 1.2.9(@types/react@18.2.79)(expo-auth-session@5.5.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(expo-web-browser@13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(react-dom@18.2.0(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
+        version: 1.2.9(@types/react@18.2.79)(expo-auth-session@5.5.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(expo-web-browser@13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(react-dom@18.2.0(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       '@expo/vector-icons':
         specifier: ^14.0.2
         version: 14.0.2
@@ -35,44 +35,44 @@ importers:
         specifier: ^0.49.0
         version: 0.49.0(expo-modules-autolinking@1.11.1)
       expo:
-        specifier: ^51.0.23
-        version: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+        specifier: ^51.0.24
+        version: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
       expo-constants:
         specifier: ~16.0.2
-        version: 16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-font:
         specifier: ~12.0.9
-        version: 12.0.9(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 12.0.9(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-image-manipulator:
         specifier: ~12.0.5
-        version: 12.0.5(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 12.0.5(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-image-picker:
         specifier: ~15.0.7
-        version: 15.0.7(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 15.0.7(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-linear-gradient:
         specifier: ^13.0.2
-        version: 13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-linking:
         specifier: ~6.3.1
-        version: 6.3.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 6.3.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-router:
-        specifier: ~3.5.19
-        version: 3.5.19(d5er6enimljf3bknpzrayzinza)
+        specifier: ~3.5.20
+        version: 3.5.20(m4np6n4xh2na5hzzg6ypsdhogy)
       expo-secure-store:
         specifier: ^13.0.2
-        version: 13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-splash-screen:
         specifier: ~0.27.5
-        version: 0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-status-bar:
         specifier: ~1.12.1
         version: 1.12.1
       expo-system-ui:
         specifier: ~3.0.7
-        version: 3.0.7(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 3.0.7(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-web-browser:
         specifier: ~13.0.3
-        version: 13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+        version: 13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       firebase:
         specifier: ^10.12.4
         version: 10.12.4
@@ -105,7 +105,7 @@ importers:
         version: 3.31.1(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       react-native-skeleton-content:
         specifier: ^1.0.28
-        version: 1.0.28(@babel/core@7.25.2)(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
+        version: 1.0.28(@babel/core@7.25.2)(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       react-native-skeleton-placeholder:
         specifier: ^5.2.4
         version: 5.2.4(@react-native-masked-view/masked-view@0.2.9(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-linear-gradient@2.8.3(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
@@ -2965,8 +2965,8 @@ packages:
   expo-modules-core@1.12.20:
     resolution: {integrity: sha512-CCXjlgT8lDAufgt912P1W7TwD+KAylfIttc1Doh1a0hAfkdkUsDRmrgthnYrrxEo2ECVpbaB71Epp1bnZ1rRrA==}
 
-  expo-router@3.5.19:
-    resolution: {integrity: sha512-I9Agms2o4kJ+JaPgmRtAOMYvvvsvfhEDwkaKo6llwtskMo9U4jCGcf0qi4Iw6PBBa+HEKCGjK/JG5tlfGARFjg==}
+  expo-router@3.5.20:
+    resolution: {integrity: sha512-walzIxz6okN/Ppq6DjrEsCiS99PMAz5GykkCSGyhxmweVWtD6j1E5Eqp0n6KVL1kcxDTSFAwypf/gezkaxLx6A==}
     peerDependencies:
       '@react-navigation/drawer': ^6.5.8
       '@testing-library/jest-native': '*'
@@ -3008,8 +3008,8 @@ packages:
     peerDependencies:
       expo: '*'
 
-  expo@51.0.23:
-    resolution: {integrity: sha512-tZv7hiDIlKMlQxzC/IxfiLEpp0xcm6VISuoeFobkvoelEWsj6bpjlsF0HP4k6pr3ELL++r7wE1VGYa/AceC6+w==}
+  expo@51.0.24:
+    resolution: {integrity: sha512-HoOuNIWXzS6Gxifcb0N+qRt5K6iR9YitQaWIVNB8elyupvQdyI566IMgMBiO45NgpO5es0sfFNNBasxBHLkbUw==}
     hasBin: true
 
   fast-deep-equal@3.1.3:
@@ -7041,15 +7041,15 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@clerk/clerk-expo@1.2.9(@types/react@18.2.79)(expo-auth-session@5.5.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(expo-web-browser@13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(react-dom@18.2.0(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)':
+  '@clerk/clerk-expo@1.2.9(@types/react@18.2.79)(expo-auth-session@5.5.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(expo-web-browser@13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))))(react-dom@18.2.0(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@clerk/clerk-js': 5.10.1(@types/react@18.2.79)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@clerk/clerk-react': 5.2.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@clerk/shared': 2.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@clerk/types': 4.9.0
       base-64: 1.0.0
-      expo-auth-session: 5.5.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-web-browser: 13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-auth-session: 5.5.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-web-browser: 13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-native-url-polyfill: 2.0.0(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))
@@ -8793,6 +8793,12 @@ snapshots:
       graphql: 15.8.0
       wonka: 4.0.15
 
+  '@urql/core@2.4.3(graphql@15.8.0)':
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0(graphql@15.8.0)
+      graphql: 15.8.0
+      wonka: 4.0.15
+
   '@urql/core@2.4.3(graphql@16.3.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.3.0)
@@ -8801,7 +8807,7 @@ snapshots:
 
   '@urql/exchange-retry@0.3.0(graphql@15.8.0)':
     dependencies:
-      '@urql/core': 2.3.6(graphql@15.8.0)
+      '@urql/core': 2.4.3(graphql@15.8.0)
       graphql: 15.8.0
       wonka: 4.0.15
 
@@ -9936,82 +9942,82 @@ snapshots:
       jest-message-util: 29.7.0
       jest-util: 29.7.0
 
-  expo-application@5.9.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-application@5.9.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-asset@10.0.10(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-asset@10.0.10(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
-      expo-constants: 16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo-constants: 16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       invariant: 2.2.4
       md5-file: 3.2.3
     transitivePeerDependencies:
       - supports-color
 
-  expo-auth-session@5.5.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-auth-session@5.5.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo-application: 5.9.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-constants: 16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-crypto: 13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-linking: 6.3.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-web-browser: 13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-application: 5.9.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-constants: 16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-crypto: 13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-linking: 6.3.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-web-browser: 13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       invariant: 2.2.4
     transitivePeerDependencies:
       - expo
       - supports-color
 
-  expo-constants@16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-constants@16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
       '@expo/config': 9.0.3
       '@expo/env': 0.3.0
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
     transitivePeerDependencies:
       - supports-color
 
-  expo-crypto@13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-crypto@13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
       base64-js: 1.5.1
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-file-system@17.0.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-file-system@17.0.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-font@12.0.9(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-font@12.0.9(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
       fontfaceobserver: 2.3.0
 
-  expo-image-loader@4.7.0(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-image-loader@4.7.0(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-image-manipulator@12.0.5(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-image-manipulator@12.0.5(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
-      expo-image-loader: 4.7.0(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo-image-loader: 4.7.0(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
 
-  expo-image-picker@15.0.7(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-image-picker@15.0.7(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
-      expo-image-loader: 4.7.0(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo-image-loader: 4.7.0(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
 
-  expo-keep-awake@13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-keep-awake@13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-linear-gradient@11.4.0(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-linear-gradient@11.4.0(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-linear-gradient@13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-linear-gradient@13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-linking@6.3.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-linking@6.3.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo-constants: 16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-constants: 16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       invariant: 2.2.4
     transitivePeerDependencies:
       - expo
@@ -10029,7 +10035,7 @@ snapshots:
     dependencies:
       invariant: 2.2.4
 
-  expo-router@3.5.19(d5er6enimljf3bknpzrayzinza):
+  expo-router@3.5.20(m4np6n4xh2na5hzzg6ypsdhogy):
     dependencies:
       '@expo/metro-runtime': 3.2.1(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))
       '@expo/server': 0.4.4(typescript@5.3.3)
@@ -10037,10 +10043,10 @@ snapshots:
       '@react-navigation/bottom-tabs': 6.5.20(@react-navigation/native@6.1.18(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-safe-area-context@4.10.5(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-screens@3.31.1(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       '@react-navigation/native': 6.1.18(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       '@react-navigation/native-stack': 6.9.26(@react-navigation/native@6.1.18(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-safe-area-context@4.10.5(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-screens@3.31.1(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
-      expo-constants: 16.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-linking: 6.3.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-splash-screen: 0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo-constants: 16.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-linking: 6.3.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-splash-screen: 0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-status-bar: 1.12.1
       react-native-helmet-async: 2.0.4(react@18.2.0)
       react-native-safe-area-context: 4.10.5(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
@@ -10057,14 +10063,14 @@ snapshots:
       - supports-color
       - typescript
 
-  expo-secure-store@13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-secure-store@13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo-splash-screen@0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-splash-screen@0.27.5(expo-modules-autolinking@1.11.1)(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
       '@expo/prebuild-config': 7.0.8(expo-modules-autolinking@1.11.1)
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
     transitivePeerDependencies:
       - encoding
       - expo-modules-autolinking
@@ -10072,19 +10078,19 @@ snapshots:
 
   expo-status-bar@1.12.1: {}
 
-  expo-system-ui@3.0.7(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-system-ui@3.0.7(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
       '@react-native/normalize-colors': 0.74.85
       debug: 4.3.6(supports-color@8.1.1)
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
     transitivePeerDependencies:
       - supports-color
 
-  expo-web-browser@13.0.3(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
+  expo-web-browser@13.0.3(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))):
     dependencies:
-      expo: 51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
+      expo: 51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
 
-  expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)):
+  expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)):
     dependencies:
       '@babel/runtime': 7.25.0
       '@expo/cli': 0.18.26(expo-modules-autolinking@1.11.1)
@@ -10093,10 +10099,10 @@ snapshots:
       '@expo/metro-config': 0.18.10
       '@expo/vector-icons': 14.0.2
       babel-preset-expo: 11.0.12(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))
-      expo-asset: 10.0.10(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-file-system: 17.0.1(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-font: 12.0.9(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
-      expo-keep-awake: 13.0.2(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-asset: 10.0.10(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-file-system: 17.0.1(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-font: 12.0.9(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-keep-awake: 13.0.2(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       expo-modules-autolinking: 1.11.1
       expo-modules-core: 1.12.20
       fbemitter: 3.0.0
@@ -10393,7 +10399,7 @@ snapshots:
     dependencies:
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     optional: true
@@ -12351,9 +12357,9 @@ snapshots:
       react-native: 0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0)
       warn-once: 0.1.1
 
-  react-native-skeleton-content@1.0.28(@babel/core@7.25.2)(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0):
+  react-native-skeleton-content@1.0.28(@babel/core@7.25.2)(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0):
     dependencies:
-      expo-linear-gradient: 11.4.0(expo@51.0.23(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
+      expo-linear-gradient: 11.4.0(expo@51.0.24(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2)))
       react-native-reanimated: 2.1.0(@babel/core@7.25.2)(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
       react-native-redash: 16.3.0(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native-reanimated@2.1.0(@babel/core@7.25.2)(react-native-gesture-handler@2.16.2(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0))(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.25.2(@babel/core@7.25.2))(@types/react@18.2.79)(react@18.2.0))(react@18.2.0)
     transitivePeerDependencies:
