@@ -29,11 +29,31 @@
           "data": [
             {
               "scheme": "https",
-              "host": "*"
+              "host": "www.youtube.com"
             },
             {
-              "scheme": "myapp",
-              "host": "*"
+              "scheme": "https",
+              "host": "t.me"
+            },
+            {
+              "scheme": "https",
+              "host": "twitter.com"
+            },
+            {
+              "scheme": "https",
+              "host": "www.linkedin.com"
+            },
+            {
+              "scheme": "https",
+              "host": "www.instagram.com"
+            },
+            {
+              "scheme": "https",
+              "host": "www.tiktok.com"
+            },
+            {
+              "scheme": "https",
+              "host": "www.reddit.com"
             }
           ],
           "category": ["DEFAULT", "BROWSABLE"]

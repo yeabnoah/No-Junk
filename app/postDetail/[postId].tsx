@@ -117,11 +117,13 @@ export default function PostId() {
   const openLinkWithApp = async (link: string) => {
     try {
       const supported = await Linking.canOpenURL(link);
-
       if (supported) {
         await Linking.openURL(link);
       } else {
-        await WebBrowser.openBrowserAsync(link);
+        Alert.alert(
+          "Error",
+          "Cannot open the URL. Make sure the URL is correct."
+        );
       }
     } catch (error) {
       Alert.alert("Error", "An unexpected error occurred.");
