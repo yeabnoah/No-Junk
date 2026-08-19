@@ -158,7 +158,7 @@ export default function PostId() {
     Share.share(
       {
         title: title,
-        message: `Check out this content:\n${contentLink}\n\nJoin NoJunk and Get Organic Content:\n www.technerd.vercel.app`,
+        message: `Check out this content:\n${contentLink}\n\nJoin NoJunk and Get Organic Content:\n https://nojunk.vercel.app`,
       },
       {
         dialogTitle: "Share with friends",
